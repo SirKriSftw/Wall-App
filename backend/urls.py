@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from wall import views
+from wall import endpoints
 
 router = routers.DefaultRouter()
 router.register(r'wall', views.EntryView, 'wall')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(endpoints))
 ]
