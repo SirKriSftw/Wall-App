@@ -8,16 +8,6 @@ class LoginBox extends React.Component {
       password: ""
    };
 
-   handleEmail = e => {
-      this.setState({ email: e.target.value });
-      console.log(this.state);
-   }
-
-   handlePassword = e => {
-      this.setState({ password: e.target.value });
-      console.log(this.state);
-   }
-
    login = e => {
       e.preventDefault();
       console.log("LOGGING IN");
@@ -38,10 +28,10 @@ class LoginBox extends React.Component {
         <form>
                  <label for="login_title">Login to the wall</label>
                  <div>
-                    <textarea rows='1' name='login' onChange={this.handleEmail} placeholder="Email"/>
+                    <textarea rows='1' name='login' onChange={e => this.setState({email: e.target.value})} placeholder="Email"/>
                  </div>
                  <div>
-                    <textarea rows='1' name='login' onChange={this.handlePassword} placeholder="Password"/>
+                    <textarea rows='1' name='login' onChange={e => this.setState({ password: e.target.value })} placeholder="Password"/>
                  </div>
                  <div>
                      <button className="login" onClick={this.login}>Login</button>

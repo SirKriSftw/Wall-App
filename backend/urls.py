@@ -24,5 +24,6 @@ router.register(r'wall', views.EntryView, 'wall')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
     path('api/', include(endpoints))
 ]
