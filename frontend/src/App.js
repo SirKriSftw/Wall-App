@@ -4,10 +4,10 @@ import NewEntry from './components/NewEntry';
 import LoginBox from './components/LoginBox';
 
 function App() {
-  return (
-     <div className="page-container">
-      <LoginBox />
-      <NewEntry />
+   const isAuth = false;
+   return (
+      <div className="page-container">
+         {isAuth ? <NewEntry /> : <LoginBox />}
       <div className="entries_container">
         <EntryLists/>
       </div>
