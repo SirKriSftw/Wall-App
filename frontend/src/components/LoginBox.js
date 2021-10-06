@@ -10,9 +10,20 @@ class LoginBox extends React.Component {
 
    login = e => {
       e.preventDefault();
-      console.log("LOGGING IN");
       console.log(this.state.email);
       console.log(this.state.password);
+      const data = {
+         username: this.state.email,
+         password: this.state.password
+      }
+      axios.post("http://localhost:8000/api/auth/login/", data).then(res => {
+         if (res.status == '200') {
+            console.log("LOGGING IN")
+         }
+         console.log(res.status);
+         console.log(res.data.token);
+         localStorage.setItem("token", res.data.token);
+      })
    }
 
    register = e => {
@@ -20,6 +31,14 @@ class LoginBox extends React.Component {
       console.log("REGISTERING");
       console.log(this.state.email);
       console.log(this.state.password);
+      const data = {
+         email: this.state.email,
+         password: this.state.password
+      }
+      axios.post("http://localhost:8000/api/auth/register/", data).then(res => {
+         console.log(res);
+         console.log(res.data);
+      })
    }
 
     render() {
